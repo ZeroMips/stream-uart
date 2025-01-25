@@ -2,17 +2,16 @@ from amaranth import *
 
 from amaranth_boards.icestick import ICEStickPlatform
 from amaranth_boards.versa_ecp5 import VersaECP5Platform
-from amaranth_boards.tang_nano import TangNanoPlatform
 
-from .blinky import Blinky
+from .tx import UARTTransmitter
 
 
 class Toplevel(Elaboratable):
     def elaborate(self, platform):
         m = Module()
 
-        m.submodules.blinky = blinky = Blinky(frequency=platform.default_clk_frequency)
-        m.d.comb += platform.request("led", 0).o.eq(blinky.led)
+        m.submodules.uart = uart = UARTTransmitter(divider=int(platform.default_clk_frequency//115200))
+        m.d.comb += platform.request("uart", 0).tx.o.eq(uart.tx)
 
         return m
 

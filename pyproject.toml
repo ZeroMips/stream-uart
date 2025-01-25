@@ -1,7 +1,7 @@
 [project]
-name = "amaranth-template-fpga"
+name = "amaranth-stream-uart"
 version = "0.0.0"
-description = "Template for a generic FPGA project using Amaranth"
+description = "A stream based UART module for Amaranth HDL"
 
 requires-python = "~=3.8"
 dependencies = [
@@ -10,7 +10,6 @@ dependencies = [
     "yowasp-yosys",
     "yowasp-nextpnr-ice40",
     "yowasp-nextpnr-ecp5",
-    "yowasp-nextpnr-gowin",
 ]
 
 [tool.pdm.dev-dependencies]
@@ -21,6 +20,6 @@ test = [
 [tool.pdm.scripts]
 _.env_file = ".env.toolchain"
 test = { cmd = "pytest" }
-build_ice40 = { call = "amaranth_template_fpga:build_ice40()" }
-build_ecp5  = { call = "amaranth_template_fpga:build_ecp5()"  }
-build_gowin = { call = "amaranth_template_fpga:build_gowin()" }
+build_ice40 = { call = "amaranth_stream_uart:build_ice40()" }
+build_ecp5  = { call = "amaranth_stream_uart:build_ecp5()"  }
+build_gowin = { call = "amaranth_stream_uart:build_gowin()" }
