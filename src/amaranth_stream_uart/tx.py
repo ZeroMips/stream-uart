@@ -30,7 +30,8 @@ class UARTTransmitter(wiring.Component):
         # uart-clk is running continous, so packets can be transferred in a constant raster
         with m.If(ctr_div == 0):
             m.d.sync += ctr_div.eq(self.divider - 1)
-        m.d.sync += ctr_div.eq(ctr_div - 1)
+        with m.Else():
+            m.d.sync += ctr_div.eq(ctr_div - 1)
         m.d.comb += uart_clk.eq(ctr_div == 0)
 
         with m.FSM():
