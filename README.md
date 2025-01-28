@@ -1,6 +1,6 @@
 # Stream UART
 
-This project provides a stream based UART implementation for the Amaranth HDL.
+This project provides a [stream][stream] based UART implementation for the Amaranth HDL.
 
 [stream]: https://amaranth-lang.org/docs/amaranth/latest/stdlib/stream.html#
 
