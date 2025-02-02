@@ -7,6 +7,8 @@ This project provides a [stream][stream] based UART implementation for the Amara
 The UART ist a simple 8N1 implementation, the baudrate can be configured with
 a divisor.
 
+![loop test](./docs/loop_test.png)
+
 ## Installation
 
 ```shell
