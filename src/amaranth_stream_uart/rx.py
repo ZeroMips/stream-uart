@@ -55,7 +55,7 @@ class UARTReceiver(wiring.Component):
                     m.d.sync += buffer.bit_select(bit_index, 1).eq(rx_synced)
                     m.d.sync += ctr_div.eq(self.divider - 1)
                     m.d.sync += bit_index.eq(bit_index + 1)
-                    with m.If(bit_index == 8):
+                    with m.If(bit_index == 7):
                         m.next = "Stop"
                 with m.Else():
                     m.d.sync += ctr_div.eq(ctr_div - 1)
